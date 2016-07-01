@@ -1,0 +1,11 @@
+  engines:
+  # ... CONFIG CONTENT ...
+  phpmd:
+    enabled: true
+    # ... CONFIG CONTENT ...
+    exclude_fingerprints:
+    - e638d2c4723bf698dd24623017d430d6
+    - 4de8b853cd2fb06559818303582661d1
+    - 22aebb56a23873f49bb890d056c7bc8c
+    - 0e7052e37d0d79aa1329c11010380b84
+# ... CONFIG CONTENT ...
