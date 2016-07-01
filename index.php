@@ -11,8 +11,8 @@
 
 	function find($first, $latest, $text) {
 		@preg_match_all('/' . preg_quote($first, '/') .
-		'(.*?)'. preg_quote($latest, '/').'/i', $text, $m);
-		return @$m[1];
+		'(.*?)'. preg_quote($latest, '/').'/i', $text, $webContent);
+		return @$webContent[1];
 	}
 	
 	function getUserIP() {
@@ -26,8 +26,8 @@
 		return $ip;
 	}
 	
-	function randomPic($dir, $cw) {
-		$files = glob($dir . $cw . '/*.*');
+	function randomPic($dir, $cycleWeather) {
+		$files = glob($dir . $cycleWeather . '/*.*');
 		$file = array_rand($files);
 		return $files[$file];
 	}
@@ -87,44 +87,44 @@
 	
 
 	if		($weather == "clear" || $weather == "sunny" || $weather == "partly-sunny" || $weather == "cool" || $weather == "extremely-hot" || $weather == "quite-cool" || $weather == "warm") {
-		if		($cycle == "sunrise")	{$cw = "clear/sunrise";}
-		elseif	($cycle == "sunset")	{$cw = "clear/sunset";}
-		elseif	($cycle == "nighttime")	{$cw = "clear/nighttime";}
-		else	{$cw = "clear/daytime";}
+		if		($cycle == "sunrise")	{$cycleWeather = "clear/sunrise";}
+		elseif	($cycle == "sunset")	{$cycleWeather = "clear/sunset";}
+		elseif	($cycle == "nighttime")	{$cycleWeather = "clear/nighttime";}
+		else	{$cycleWeather = "clear/daytime";}
 	}
 	elseif	($weather == "cloudy" || $weather == "passing-clouds" || $weather == "broken-clouds" || $weather == "more-clouds-than-sun" || $weather == "mostly-cloudy" || $weather == "partly-cloudy" || $weather == "low-clouds" || $weather == "overcast" || $weather == "scattered-clouds" || $weather == "mild") {
-		if		($cycle == "sunrise")	{$cw = "cloudy/sunrise";}
-		elseif	($cycle == "sunset")	{$cw = "cloudy/sunset";}
-		elseif	($cycle == "nighttime")	{$cw = "cloudy/nighttime";}
-		else	{$cw = "cloudy/daytime";}
+		if		($cycle == "sunrise")	{$cycleWeather = "cloudy/sunrise";}
+		elseif	($cycle == "sunset")	{$cycleWeather = "cloudy/sunset";}
+		elseif	($cycle == "nighttime")	{$cycleWeather = "cloudy/nighttime";}
+		else	{$cycleWeather = "cloudy/daytime";}
 	}
 	elseif	($weather == "rain" || $weather == "light-rain" || $weather == "heavy-rain" || $weather == "rain-showers" || $weather == "drizzle" || $weather == "thunderstorms" || $weather == "sprinkles" || $weather == "scattered-showers" || $weather == "thundershowers" || $weather == "light-mixture-of-precip") {
-		if		($cycle == "sunrise")	{$cw = "rain/sunrise";}
-		elseif	($cycle == "sunset")	{$cw = "rain/sunset";}
-		elseif	($cycle == "nighttime")	{$cw = "rain/nighttime";}
-		else	{$cw = "rain/daytime";}
+		if		($cycle == "sunrise")	{$cycleWeather = "rain/sunrise";}
+		elseif	($cycle == "sunset")	{$cycleWeather = "rain/sunset";}
+		elseif	($cycle == "nighttime")	{$cycleWeather = "rain/nighttime";}
+		else	{$cycleWeather = "rain/daytime";}
 	}
 	elseif	($weather == "light-snow" || $weather == "snow-showers" || $weather == "snow-flurries" || $weather == "chilly") {
-		if		($cycle == "sunrise")	{$cw = "snow/sunrise";}
-		elseif	($cycle == "sunset")	{$cw = "snow/sunset";}
-		elseif	($cycle == "nighttime")	{$cw = "snow/nighttime";}
-		else	{$cw = "snow/daytime";}
+		if		($cycle == "sunrise")	{$cycleWeather = "snow/sunrise";}
+		elseif	($cycle == "sunset")	{$cycleWeather = "snow/sunset";}
+		elseif	($cycle == "nighttime")	{$cycleWeather = "snow/nighttime";}
+		else	{$cycleWeather = "snow/daytime";}
 	}
 	elseif	($weather == "fog" || $weather == "ice-fog" || $weather == "dense-fog" || $weather == "haze") {
-		if		($cycle == "sunrise")	{$cw = "fog/sunrise";}
-		elseif	($cycle == "sunset")	{$cw = "fog/sunset";}
-		elseif	($cycle == "nighttime")	{$cw = "fog/nighttime";}
-		else	{$cw = "fog/daytime";}
+		if		($cycle == "sunrise")	{$cycleWeather = "fog/sunrise";}
+		elseif	($cycle == "sunset")	{$cycleWeather = "fog/sunset";}
+		elseif	($cycle == "nighttime")	{$cycleWeather = "fog/nighttime";}
+		else	{$cycleWeather = "fog/daytime";}
 	}
 	else	{
-		if		($cycle == "sunrise")	{$cw = "clear/sunrise";}
-		elseif	($cycle == "sunset")	{$cw = "clear/sunset";}
-		elseif	($cycle == "nighttime")	{$cw = "clear/nighttime";}
-		else	{$cw = "clear/daytime";}
+		if		($cycle == "sunrise")	{$cycleWeather = "clear/sunrise";}
+		elseif	($cycle == "sunset")	{$cycleWeather = "clear/sunset";}
+		elseif	($cycle == "nighttime")	{$cycleWeather = "clear/nighttime";}
+		else	{$cycleWeather = "clear/daytime";}
 	}
 	
-	$file = randomPic("img/", $cw);
-	$img = randomPic("img/", $cw);
+	$file = randomPic("img/", $cycleWeather);
+	$img = randomPic("img/", $cycleWeather);
 	
 	$what = getimagesize($file);
 	switch(strtolower($what['mime'])) {
