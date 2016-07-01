@@ -38,7 +38,7 @@
 	$countryCode	= find('countryCode";s:2:"', '";', $content);
 
 	  $city			= strtolower(str_replace(' ','-',$city[0]));
-	  $countryCode = strtolower($countryCode[0]);
+	  $countryCode	= strtolower($countryCode[0]);
 	  
 	include ("countries.php");
 	
@@ -51,8 +51,8 @@
 	@$content	= file_get_contents("https://www.timeanddate.com/worldclock/$country/$city");
 	$control	= find('<span id=ct class=h1>',			'</span>',	$content);
 
-	if		(empty($control[0])) {
-		@$content	= file_get_contents("https://www.timeanddate.com/worldclock/$country/$capital");
+	if	(empty($control[0])) {
+		@$content = file_get_contents("https://www.timeanddate.com/worldclock/$country/$capital");
 	}
 	
 	$weather 	= find('<img class=mtt title="',		'.',		$content);	
@@ -149,4 +149,3 @@
 	header('Content-Type: $form');
 	imagejpeg($new);
 	imagedestroy($new);
-?>
