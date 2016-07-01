@@ -1,5 +1,4 @@
 <?php
-
 	$country["af"] = array("Afghanistan", "Kabul");
 	$country["al"] = array("Albania", "Tirana");
 	$country["dz"] = array("Algeria", "Algiers");
@@ -243,5 +242,3 @@
 	$country["ye"] = array("Yemen", "Sana");
 	$country["zm"] = array("Zambia", "Lusaka");
 	$country["zw"] = array("Zimbabwe", "Harare");
-
-?>
